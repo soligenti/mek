@@ -1,0 +1,22 @@
+<!ELEMENT dtconfiglist (dtconfig)*>
+<!ELEMENT dtconfig (name,type,default,capability?,shortdescription?,longdescription?)>
+<!ATTLIST dtconfig
+	prefs (core|gui|session) #IMPLIED
+        section (import|lighttable|darkroom|geoloc|security|cpugpu|xmp|quality) #IMPLIED
+        capability CDATA #IMPLIED
+>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT type (#PCDATA|enum)*>
+<!ATTLIST type
+	min CDATA #IMPLIED
+	max CDATA #IMPLIED
+	factor CDATA #IMPLIED
+>
+<!ELEMENT enum (option)+>
+<!ELEMENT option (#PCDATA)>
+<!ATTLIST option
+	capability CDATA #IMPLIED
+>
+<!ELEMENT default (#PCDATA)>
+<!ELEMENT shortdescription (#PCDATA)>
+<!ELEMENT longdescription (#PCDATA)>
